@@ -664,36 +664,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Olya\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/Andriana/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Olya\\Desktop\\E-learning-Classes-Task5\\Task5\\Task5\\Task5.csproj",
+      "projectUniqueName": "/Users/Andriana/Desktop/E-learning-Classes-Task5/Task5/Task5/Task5.csproj",
       "projectName": "Task5",
-      "projectPath": "C:\\Users\\Olya\\Desktop\\E-learning-Classes-Task5\\Task5\\Task5\\Task5.csproj",
-      "packagesPath": "C:\\Users\\Olya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Olya\\Desktop\\E-learning-Classes-Task5\\Task5\\Task5\\obj\\",
+      "projectPath": "/Users/Andriana/Desktop/E-learning-Classes-Task5/Task5/Task5/Task5.csproj",
+      "packagesPath": "/Users/Andriana/.nuget/packages/",
+      "outputPath": "/Users/Andriana/Desktop/E-learning-Classes-Task5/Task5/Task5/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Olya\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "/Users/Andriana/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -711,8 +703,9 @@
       "netcoreapp2.0": {
         "dependencies": {
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
-            "version": "[2.0.0, )",
+            "version": "2.0",
             "autoReferenced": true
           }
         },

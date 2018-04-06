@@ -1,7 +1,10 @@
 ﻿<Properties StartupConfiguration="{A8DF3312-F17F-44B4-BAF8-D235F34E0414}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Task5/Program.cs">
     <Files>
-      <File FileName="Task5/Program.cs" Line="9" Column="13" />
+      <File FileName="Task5/Program.cs" Line="34" Column="33" />
+      <File FileName="Task5/IContact.cs" Line="14" Column="2" />
+      <File FileName="Task5/MailContact.cs" Line="45" Column="14" />
+      <File FileName="Task5/PhoneContact.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -10,5 +13,5 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Task5 PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.Task5 PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
