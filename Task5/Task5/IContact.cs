@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Task5
 {
-    interface IContact : ICloneable, IComparable<IContact>
+    public interface IContact : ICloneable, IComparable<IContact>
     {
         string Name { get; set; }
         string Info { get; set; }
-        void Input();
+        void Input(string str);
         void Output();
     }
 }

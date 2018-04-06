@@ -4,42 +4,84 @@ using System.Text;
 
 namespace Task5
 {
-    class Task
+    public class Task
     {
-        static List<IContact> contacts = new List<IContact>();
-
-        public static List<IContact> CloneList()
+        public List<IContact> CloneList(List<IContact> list)
         {
-            List<IContact> cloned = new List<IContact>(contacts.Count);
-            for (int i = 0; i < contacts.Count; i++)
+            List<IContact> cloned = new List<IContact>();
+            for (int i = 0; i < list.Count; i++)
             {
-                cloned.Add((IContact)contacts[i].Clone());
+                cloned.Add((IContact)list[i].Clone());
             }
             return cloned;
         }
-
-        public static void InputList()
-        {
-            contacts.Add(new PhoneContact("olya", "043298"));
-            contacts.Add(new MailContact("bodya", "ervsc@hgfjd"));
-            contacts.Add(new PhoneContact("oleg", "04e298vds"));
-            contacts.Add(new MailContact("ira", "tbrervd@vc"));
-            contacts.Add(new PhoneContact("zenoviy", "4433238"));
-            PhoneContact p = new PhoneContact();
-            p.Input();
-            MailContact m = new MailContact();
-            m.Input();
-            contacts.Add(p);
-            contacts.Add(m);
-        }
         
-        public static void DoTask()
+        public IContact Parse(string str)
         {
-            InputList();           
-            
+            string[] array = str.Split(" ", 2);
+            IContact contact;
+            if (Convert.ToInt32(array[0]) == 1)
+            {
+                contact = new MailContact();
+            }
+            else if(Convert.ToInt32(array[0]) == 2)
+            {
+                contact = new PhoneContact();
+            }
+            else
+            {
+                throw new Exception("invalid data");
+            }
+            contact.Input(array[1]);
+
+            return contact;
+        }
+
+        private List<IContact> GetBaseContacts()
+        {
+            List<IContact> baseContacts = new List<IContact>();
+
+            baseContacts.Add(new PhoneContact("olya", "043298"));
+            baseContacts.Add(new MailContact("bodya", "ervsc@hgfjd"));
+            baseContacts.Add(new PhoneContact("oleg", "04e298vds"));
+            baseContacts.Add(new MailContact("ira", "tbrervd@vc"));
+            baseContacts.Add(new PhoneContact("zenoviy", "4433238"));
+        
+            return baseContacts;
+        }
+
+        public List<IContact> InputList()
+        {
+            List<IContact> contacts = new List<IContact>();
+            List<IContact> baseContacts = GetBaseContacts();
+            contacts.AddRange(baseContacts);
+            Console.WriteLine("Enter size of contacts:");
+            string str = Console.ReadLine();
+            int count = Convert.ToInt32(str);
+            ShowHead();
+            for (int i = 0; i < count; i++)
+            {
+                string line = Console.ReadLine();
+                IContact contact = Parse(line);
+                contacts.Add(contact);
+            }
+
+            return contacts;
+        }
+        public void ShowHead()
+        {
+            Console.WriteLine("Enter contacts(for example, mail contact(1 ira ira@gmail.com) or phone contact(2 ira 0965612345)):");
+        }
+
+        public void DoTask()
+        {
+            List<IContact> contacts = InputList();
+
             Console.WriteLine("Sort contacts by name: ");
-            List<IContact> sortedContacts = CloneList();
+            List<IContact> sortedContacts = CloneList(contacts);
+
             sortedContacts.Sort();
+
             for (int i = 0; i < sortedContacts.Count; i++)
             {
                 sortedContacts[i].Output();

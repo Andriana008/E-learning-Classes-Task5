@@ -12,13 +12,14 @@ namespace Task5
         {
             try
             {
-                Task.DoTask();
+                Task task = new Task();
+                task.DoTask();
             }
             catch(ArgumentException e)
             {
                 Console.WriteLine(e.Message);
             }
-
+            Console.Read();
         }
     }
 }

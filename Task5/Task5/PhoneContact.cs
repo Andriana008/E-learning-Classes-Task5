@@ -5,27 +5,23 @@ using System.Text;
 
 namespace Task5
 {
-    class PhoneContact : IContact
+    public class PhoneContact : IContact
     {
-        string name;
-        string phone;
-
-        public string Name { get => name; set => name = value; }
-        public string Info { get => phone; set => phone = value; }
-
-        public PhoneContact(string _name, string _phone)
-        {
-            Name = _name;
-            Info = _phone;
-        }
+        public string Name { get; set; }
+        public string Info { get; set; }
 
         public PhoneContact() : this("", "") { }
 
+        public PhoneContact(string name, string phone)
+        {
+            Name = name;
+            Info = phone;
+        }
 
         public object Clone()
         {
-            PhoneContact t = new PhoneContact(this.Name, this.Info);
-            return t;
+            PhoneContact phoneContact = new PhoneContact(this.Name, this.Info);
+            return phoneContact;
         }
 
         public int CompareTo(IContact other)
@@ -33,25 +29,25 @@ namespace Task5
             return String.Compare(this.Name, other.Name);
         }
 
-        public void Input()
+        public void Input(string str)
         {           
-            Console.Write("Enter Phone contact. Enter name:");
-            Name = Console.ReadLine();
-            Console.Write("Enter phone:");            
-            string input = Console.ReadLine();
-            if(input.All(char.IsDigit))
-            {
-                Info = input;
-            }
-            else
+            string[] array = str.Split(" ");
+            Name = array[0];
+            if (!array[1].All(char.IsDigit))
             {
                 throw new ArgumentException();
             }
+            Info = array[1];
         }
 
         public void Output()
         {
-            Console.WriteLine($"{Name} - {Info}");
+            Console.WriteLine(ToString());
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Info}";
         }
     }
 }

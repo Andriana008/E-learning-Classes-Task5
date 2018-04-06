@@ -5,27 +5,23 @@ using System.Text;
 
 namespace Task5
 {
-    class MailContact : IContact
+    public class MailContact : IContact
     {
-        string name;
-        string mail;
-
-        public string Name { get => name; set => name = value; }
-        public string Info { get => mail; set => mail = value; }
-
-        public MailContact(string _name, string _mail)
-        {
-            Name = _name;
-            Info = _mail;
-        }
+        public string Name { get; set; }
+        public string Info { get; set; }
 
         public MailContact() : this("", "") { }
 
+        public MailContact(string name, string mail)
+        {
+            Name = name;
+            Info = mail;
+        }
 
         public object Clone()
         {
-            MailContact t = new MailContact(this.Name, this.Info);
-            return t;
+            MailContact mailContact = new MailContact(this.Name, this.Info);
+            return mailContact;
         }
 
         public int CompareTo(IContact other)
@@ -33,25 +29,25 @@ namespace Task5
             return String.Compare(this.Name, other.Name);
         }
 
-        public void Input()
+        public void Input(string str)
         {
-            Console.Write("Enter Mail contact. Enter name:");
-            Name = Console.ReadLine();
-            Console.Write("Enter mail:");
-            string input = Console.ReadLine();
-            if (input.Contains('@'))
-            {
-                Info = input;
-            }
-            else
+            if (!str.Contains('@'))
             {
                 throw new ArgumentException();
             }
+            string[] array = str.Split(" ");
+            Name = array[0];
+            Info = array[1];
         }
-
+        
         public void Output()
         {
-            Console.WriteLine($"{Name} - {Info}");
+            Console.WriteLine(ToString());
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Info}";
         }
     }
 }
