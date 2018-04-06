@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Task5
@@ -33,11 +34,19 @@ namespace Task5
         }
 
         public void Input()
-        {
+        {           
             Console.Write("Enter Phone contact. Enter name:");
             Name = Console.ReadLine();
-            Console.Write("Enter phone:");
-            Info = Console.ReadLine();
+            Console.Write("Enter phone:");            
+            string input = Console.ReadLine();
+            if(input.All(char.IsDigit))
+            {
+                Info = input;
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
         }
 
         public void Output()

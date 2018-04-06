@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Task5
@@ -37,7 +38,15 @@ namespace Task5
             Console.Write("Enter Mail contact. Enter name:");
             Name = Console.ReadLine();
             Console.Write("Enter mail:");
-            Info = Console.ReadLine();
+            string input = Console.ReadLine();
+            if (input.Contains('@'))
+            {
+                Info = input;
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
         }
 
         public void Output()
