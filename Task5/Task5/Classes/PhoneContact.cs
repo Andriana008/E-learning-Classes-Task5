@@ -20,8 +20,7 @@ namespace Task5
 
         public object Clone()
         {
-            PhoneContact phoneContact = new PhoneContact(this.Name, this.Info);
-            return phoneContact;
+            return new PhoneContact(this.Name, this.Info);
         }
 
         public int CompareTo(IContact other)

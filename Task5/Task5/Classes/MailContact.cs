@@ -20,8 +20,7 @@ namespace Task5
 
         public object Clone()
         {
-            MailContact mailContact = new MailContact(this.Name, this.Info);
-            return mailContact;
+            return new MailContact(this.Name, this.Info);
         }
 
         public int CompareTo(IContact other)
