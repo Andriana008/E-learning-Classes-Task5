@@ -18,7 +18,7 @@ namespace Task5
         
         public IContact Parse(string str)
         {
-            string[] array = str.Split(" ", 2);
+            string[] array = str.Split(' ', 2);
             IContact contact;
             if (Convert.ToInt32(array[0]) == 1)
             {

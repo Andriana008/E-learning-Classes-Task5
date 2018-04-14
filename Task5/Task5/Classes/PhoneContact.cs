@@ -14,8 +14,8 @@ namespace Task5
 
         public PhoneContact(string name, string phone)
         {
-            Name = name;
-            Info = phone;
+            this.Name = name;
+            this.Info = phone;
         }
 
         public object Clone()
@@ -30,7 +30,7 @@ namespace Task5
 
         public void Input(string str)
         {           
-            string[] array = str.Split(" ");
+            string[] array = str.Split(' ');
             Name = array[0];
             if (!array[1].All(char.IsDigit))
             {

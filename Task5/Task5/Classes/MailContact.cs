@@ -14,8 +14,8 @@ namespace Task5
 
         public MailContact(string name, string mail)
         {
-            Name = name;
-            Info = mail;
+            this.Name = name;
+            this.Info = mail;
         }
 
         public object Clone()
@@ -34,7 +34,7 @@ namespace Task5
             {
                 throw new ArgumentException();
             }
-            string[] array = str.Split(" ");
+            string[] array = str.Split(' ');
             Name = array[0];
             Info = array[1];
         }
